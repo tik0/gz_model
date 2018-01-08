@@ -77,6 +77,9 @@ int main(int argc, char **argv)
   std::vector< std::string > vec;
   std::string line;
 
+  msgs::Model msg;
+  msg.set_name(modelName);
+  int idx = 0;
   while (getline(in,line))
   {
       Tokenizer tok(line);
@@ -90,13 +93,12 @@ int main(int argc, char **argv)
          pose.pos.y = std::stod(vec.at(1));
          rpy.z = std::stod(vec.at(2));
          pose.rot.SetFromEuler(rpy);
-         std::cout << "(x,y,Y): (" << pose.pos.x << ", " << pose.pos.y << ", " << rpy.z << ")\n";
-         msgs::Model msg;
-         msg.set_name(modelName);
          msgs::Set(msg.mutable_pose(), pose.Ign());
          pub->Publish(msg, true);
          usleep(sleep_us);
+         std::cout << ++idx << ") (x,y,Y): (" << pose.pos.x << ", " << pose.pos.y << ", " << rpy.z << ")\n";
       }
   }
-  pub->Fini();
+  gazebo::transport::fini();
+  return 0;
 }

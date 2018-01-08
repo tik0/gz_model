@@ -4,7 +4,9 @@
 ## Set (x,y,Yaw) by CSV
 
 ```
+$ gazebo
 $ export GAZEBO_MASTER_URI=http://localhost:11346
+$ # Set a unit_box inside the simulator
 $ ./gz --inputfile /opt/repositories/mvae_mapping/src/mvae_sensor_train/trajectories/positions.csv --model unit_box --z 0.5 --R 0 --P 0 --delay 200000
 ```
 
