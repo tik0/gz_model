@@ -34,7 +34,7 @@ int main(int argc, char **argv)
   options.add_options()("help,h", "Display a help message.")
           ("inputfile",       po::value<std::string>(&inputfile)->required(), "CSV file with (x,y,Yaw) tuple")
           ("model",           po::value<std::string>(&modelName)->required(), "Model name")
-          ("z",               po::value<double>(&(pose.pos.x))->required(), "z-Value (m)")
+          ("z",               po::value<double>(&(pose.pos.z))->required(), "z-Value (m)")
           ("R",               po::value<double>(&(rpy.x))->required(), "Roll-Value (rad)")
           ("P",               po::value<double>(&(rpy.y))->required(), "Pitch-Value (rad)")
           ("delay",           po::value<int>(&sleep_us)->default_value(sleep_us), "Delay betwenn two messages (µs)");
