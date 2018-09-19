@@ -5,7 +5,6 @@
 #include <algorithm>    // copy
 #include <boost/tokenizer.hpp>
 #include <iterator>     // ostream_operator
-#include <gazebo/common/common.hh>
 #include <gazebo/transport/transport.hh>
 #include <sdf/sdf.hh>
 #include <string>
